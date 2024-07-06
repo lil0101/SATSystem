@@ -14,6 +14,41 @@ public class SATSystem {
 			this.tests=tests;
 			this.proctors=proctors;
 		}
+
+	public void importStudents(String import_questions) throws IOException{
+		String file = import_questions;
+		BufferedReader reader = null;
+		String line;
+		try {
+			reader = new BufferedReader(new FileReader(file));
+			// Skip the header row
+			reader.readLine();
+			while ((line = reader.readLine()) != null) {
+				String[] row = line.split("\t");
+				String id = row[0];
+				String name = row [1];
+				int testRoom = Integer.parseInt(row[2]); 
+				double questionAnswerTime = Double.parseDouble(row[3]);
+				double probabilityCorrect = Double.parseDouble(row[4]);
+				addStudent(new Student(id,name,testRoom,questionAnswerTime,probabilityCorrect));
+			}
+		} catch (IOException e) {//make sure valid txt
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				reader.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public void SATCheck()
+	{
+		
+		
+	}
+
 		public synchronized Student getStudent()
 		{
 			while(getFinishTestStudents().isEmpty())			
