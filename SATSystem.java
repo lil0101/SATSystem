@@ -1,7 +1,8 @@
 import java.util.Vector;
 public class SATSystem {
 
-		private Vector<Student> finishTestStudents;
+	private Vector<Student> newStudents;	
+	private Vector<Student> finishTestStudents;
 		private Vector<Test> tests;
 		private Vector<Proctor> proctors;
 		private Vector<TeachingAssistant> TeachingAssistants;
@@ -30,7 +31,7 @@ public class SATSystem {
 				int testRoom = Integer.parseInt(row[2]); 
 				double questionAnswerTime = Double.parseDouble(row[3]);
 				double probabilityCorrect = Double.parseDouble(row[4]);
-				addStudent(new Student(id,name,testRoom,questionAnswerTime,probabilityCorrect));
+				newStudents.addStudent(new Student(id,name,testRoom,questionAnswerTime,probabilityCorrect));
 			}
 		} catch (IOException e) {//make sure valid txt
 			throw new RuntimeException(e);
