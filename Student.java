@@ -8,7 +8,6 @@ public class Student implements Runnable{
 	private int examClass;              // כיתת הבחינה (מספר שלם)
 	private double probabilityCorrect;  // רמת הסתברות לענות נכון על שאלה בודדת P
 	private int answerTime;             // קצב מענה על שאלות בשניות X
-	private WaitingListStudent waitingListStudent ;
 
 	public static Scanner sc = new Scanner (System.in);
 
@@ -19,7 +18,6 @@ public class Student implements Runnable{
 		this.examClass = examClass;
 		this.probabilityCorrect = probabilityCorrect;
 		this.answerTime = answerTime;
-		this.waitingListStudent=waitingListStudent;
 	}
 
 	public void run()
