@@ -1,6 +1,6 @@
 import java.util.Vector;
 
-public class TeachingAssistant {
+public class TeachingAssistant imlements comparable {
 
 	private String name;
 	private int salary; // Accumulated salary
@@ -47,4 +47,13 @@ public class TeachingAssistant {
 	public int getSalary() {
 		return salary;
 	}
+
+	public int compareTo(TeachingAssistant other) {
+		if (this.testsFromProctors.size()>other.testsFromProctors.size())
+			return 1;
+		if (this.testsFromProctors.size()<other.testsFromProctors.size())
+			return -1;
+		return 0;
+
+	} 
 }
